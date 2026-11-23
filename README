@@ -1,0 +1,153 @@
+# Flutter & Dart Course — Coding Tests (Week 2 → Week 7)
+
+This repository tracks my practice and retakes of the coding tests from my Dart / Flutter course.
+Each week tests one skill, and every group (G1–G4) in a week is the **same exercise with a different story**.
+
+## Repository structure
+
+```
+.
+├── WEEK-2/                # Dart functions & parameters
+│   ├── test-g1/           # Employee Bonus
+│   ├── test-g2/           # Delivery Charges
+│   ├── test-g3/           # Online Order Price
+│   └── test-g4/           # Cinema Tickets
+├── WEEK-3/                # Classes & OOP (written test, .docx instructions)
+├── WEEK-4/                # Layered architecture: Model → Service → Test
+│   ├── W4 - TEST - G1/    # The Library
+│   ├── W4 - TEST - G2/    # The Cinema
+│   ├── W4 - TEST - G3/    # The Delivery
+│   ├── W4 - TEST - G4/    # The Appointments
+│   └── W4 - TEST - RETAKE/# The Sports Center
+├── WEEK-6/                # Flutter layout (Row, Column, Expanded)
+│   ├── G1/ G2/ G3/ G4/
+└── WEEK-7/                # Flutter stateless widgets (cards)
+    ├── G1/ G2/ G3/ G4/
+```
+
+## Exercises
+
+### Week 2 — Dart functions & parameters
+
+Write one function with the correct parameter syntax (required, optional with default, nullable), then loop over the data in `main()` and print the results.
+
+| Group | Exercise | Function | Data to loop over |
+|---|---|---|---|
+| G1 | Employee Bonus | `calculateBonus` | Two parallel lists |
+| G2 | Delivery Charges | `calculateDelivery` | `Map<String, int>` |
+| G3 | Online Order Price | `calculateFinalPrice` | Two parallel lists (one nullable) |
+| G4 | Cinema Tickets | `calculateTicketPrice` | `List<Map<String, dynamic>>` |
+
+**Run:** `dart test.dart`
+
+### Week 3 — Classes & OOP
+
+Model a small system with classes, enums, default values, immutability and a computed getter, then test it in `main()`.
+
+| Group | Exercise | Main concepts |
+|---|---|---|
+| G1 | Fast-Food Order | Enums with prices, `Set` for unique extras |
+| G2 | Bus Ticket | Immutable class, "upgrade" returns a new object |
+| G3 | Student Report | Private list, add later, average & best subject |
+| G4 | Train Trip | Custom `Duration` with `operator +` and `toString()` |
+| Extra | Hospital Patients | Filtering a list with `where` |
+
+**Run:** `dart <file>.dart`
+
+### Week 4 — Model → Service → Test
+
+Starter code is given. Add a new business rule in three layers:
+Q1 Model (field + getter) · Q2 Service (precondition that throws an `Exception`) · Q3 Tests (one valid, one invalid).
+
+| Group | Exercise | New rule |
+|---|---|---|
+| G1 | The Library | Borrowing limit (regular 2 / premium 4) |
+| G2 | The Cinema | Minimum age for movies |
+| G3 | The Delivery | Maximum weight per truck |
+| G4 | The Appointments | Cancelling an appointment |
+| Retake | The Sports Center | Booking a court by time slot |
+
+**Run:**
+
+```bash
+dart pub get
+dart test lib/test/<name>_test.dart
+```
+
+### Week 6 — Flutter layout
+
+Build a coloured-box layout from an ASCII diagram using `Row`, `Column`, `Container`, `Expanded` (flex) and `SizedBox` (gaps). The layout must adapt to any screen width.
+
+| Group | Theme | Root widget |
+|---|---|---|
+| G1 | Layout exercise | `Column` |
+| G2 | Music player | `Row` |
+| G3 | Photo gallery | `Column` |
+| G4 | Online shop | `Column` |
+
+### Week 7 — Stateless widgets
+
+Build a reusable stateless card widget from an enum and one `bool`, then show a list of cards.
+
+| Group | Widget | Bool | Effect |
+|---|---|---|---|
+| G1 | `MemberCard` | `isSelected` | Blue background |
+| G2 | `ProductCard` | `isOnSale` | Half price |
+| G3 | `SportCard` | `isFavorite` | Filled star |
+| G4 | `DeviceCard` | `isOn` | Amber avatar |
+
+**Run (Week 6 & 7):**
+
+```bash
+flutter create --platforms=web .
+flutter pub get
+flutter run -d chrome
+```
+
+## Progress tracker
+
+Tick a box when the exercise is solved and runs correctly.
+
+### Week 2
+- [ ] G1 — Employee Bonus
+- [ ] G2 — Delivery Charges *(retake)*
+- [ ] G3 — Online Order Price
+- [ ] G4 — Cinema Tickets
+
+### Week 3
+- [ ] G1 — Fast-Food Order
+- [ ] G2 — Bus Ticket
+- [ ] G3 — Student Report
+- [ ] G4 — Train Trip
+- [ ] Extra — Hospital Patients
+
+### Week 4
+- [ ] G1 — The Library
+- [ ] G2 — The Cinema
+- [ ] G3 — The Delivery
+- [ ] G4 — The Appointments
+- [ ] Retake — The Sports Center
+
+### Week 6
+- [ ] G1
+- [ ] G2 — Music player
+- [ ] G3 — Photo gallery
+- [ ] G4 — Online shop
+
+### Week 7
+- [ ] G1 — MemberCard
+- [ ] G2 — ProductCard
+- [ ] G3 — SportCard
+- [ ] G4 — DeviceCard
+
+## Notes
+
+- The `WEEK-2/test-g3/test.dart` starter contains the G2 data by mistake; the real G3 data is in the `.docx` instructions.
+- In Week 4, the test files are in `lib/test/`, so run `dart test lib/test/...` (not `test/...`).
+- Week 5 is not included.
+
+## Tools
+
+- Dart SDK 3.x
+- Flutter (web target, Chrome)
+- VS Code
