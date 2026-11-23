@@ -1,18 +1,15 @@
 
 // you function
-void deliveryPrice(
-  int requires orderPrice; 
-  int freeDeliveryLimit;
-  int deliveryFee;
-){
-
-  if (orderPrice >= freeDeliveryLinit) {
-
-    return deliveryPrice(deliveryFee);
-
-  } else {
-    
+int calcualateDelivery({
+  required int orderPrice, 
+  int? deliveryFee, 
+  required int freeDeliveryLimit,
+}){
+  if (orderPrice >= freeDeliveryLimit){
+    return 0 ; 
   }
+  return deliveryFee ?? 0 ; 
+
 }
 
 void main() {
@@ -28,9 +25,8 @@ void main() {
 
   // For each order, compute the delivery price
   // with your function and print it.
-  for (entry in orders.entries) {
-    return deliveryPrice(orders);
+  for (final entry in orders.entries){
+    int price = calcualateDelivery(orderPrice: entry.value, freeDeliveryLimit: freeDeliveryLimit, deliveryFee: deliveryFee);
+    print("${entry.key}: $price");
   }
-
-  print(deliveryPrice);
 }

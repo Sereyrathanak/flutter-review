@@ -1,15 +1,16 @@
-
-// you function
+int calculateFinalPrice({
+  required int price, 
+  int? fee, 
+}) {
+  return price + (fee ?? 0); 
+}
 
 void main() {
-  Map<String, int> orders = {
-    "ORD001": 40,
-    "ORD002": 60,
-    "ORD003": 25,
-    "ORD004": 80,
-  };
-  int? deliveryFee = 5;
-  int freeDeliveryLimit = 50;
-  // For each order, compute the delivery price
-  // with your function and print it.
+  List<int> prices = [20, 35, 50, 80];
+  List<int?> fees = [5, null, 10, null];
+
+  for (int i = 0; i < prices.length; i++) {
+    int finalPrice = calculateFinalPrice(price: prices[i], fee: fees[i]);
+    print("Order ${i + 1}: $finalPrice");
+  }
 }
