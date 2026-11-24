@@ -109,10 +109,10 @@ flutter run -d chrome
 Tick a box when the exercise is solved and runs correctly.
 
 ### Week 2
-- [ ] G1 — Employee Bonus
-- [ ] G2 — Delivery Charges *(retake)*
-- [ ] G3 — Online Order Price
-- [ ] G4 — Cinema Tickets
+- [✅] G1 — Employee Bonus
+- [✅] G2 — Delivery Charges *(retake)*
+- [✅] G3 — Online Order Price
+- [✅] G4 — Cinema Tickets
 
 ### Week 3
 - [ ] G1 — Fast-Food Order
