@@ -5,14 +5,14 @@ class LibraryService {
   final List<Member> members = [];
   final List<Book> books = [];
 
-  void addMember({required String memberId, required String memberName}) {
+  void addMember({required String memberId, required String memberName, bool isPremium = false}) {
     // ! Member shall not exist already
     if (_findMemberOrNull(memberId) != null) {
       throw Exception('Member $memberId already exists');
     }
-    members.add(Member(id: memberId, name: memberName));
+    members.add(Member(id: memberId, name: memberName, isPremium: isPremium));
   }
-
+  
   void addBook({required String bookId, required String title}) {
     // ! Book shall not exist already
     if (_findBookOrNull(bookId) != null) {
@@ -28,6 +28,9 @@ class LibraryService {
       throw Exception('Member $memberId not found');
     }
 
+    if (_countBorrowBook(memberId) >= member.maxBooks){
+      throw Exception("This member ${memberId} has already reached the limit of ${member.maxBooks} book"); 
+    }
     // ! Book shall exist
     Book? book = _findBookOrNull(bookId);
     if (book == null) {
@@ -69,5 +72,15 @@ class LibraryService {
       if (b.id == bookId) return b;
     }
     return null;
+  }
+
+  int _countBorrowBook(String memberId){
+    int count = 0; 
+    for (Book b in books){
+      if (b.borrower != null && b.borrower!.id == memberId){
+        count ++; 
+      }
+    }
+    return count; 
   }
 }
